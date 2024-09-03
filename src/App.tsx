@@ -17,7 +17,7 @@ function Logo() {
 function Form() {
   return (
     <div className="add-form">
-      <h3>What did you need for your trip?😁</h3>{" "}
+      <h3>What did you need for your trip?😁</h3>
     </div>
   );
 }
@@ -37,9 +37,8 @@ function PackingList() {
 function Item({ item }) {
   return (
     <li>
-      <span>
-        {item.quantity}
-        {item.description}
+      <span style={{ textDecoration: item.packed ? "line-through" : "none" }}>
+        {item.quantity} {item.description}
       </span>
       <button>❌</button>
     </li>
