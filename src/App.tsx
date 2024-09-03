@@ -1,3 +1,4 @@
+import { initialItems } from "./data.tsx";
 export default function App() {
   return (
     <div className="app">
@@ -22,9 +23,23 @@ function Form() {
 }
 
 function PackingList() {
-  return <div className="list">list</div>;
+  return (
+    <ul className="list">
+      {initialItems.map((item) => (
+        <Item item={item} />
+      ))}
+    </ul>
+  );
 }
 
+function Item({ item }) {
+  return (
+    <li>
+      {item.description}
+      {item.quantity}
+    </li>
+  );
+}
 function Stats() {
   return (
     <footer className="stats">
