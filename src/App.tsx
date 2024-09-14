@@ -2,12 +2,12 @@ import { useState } from "react";
 export default function App() {
   const [items, setItems] = useState([]);
 
-  function handleAddItems(item) {
+  function handleAddItems(item: Text) {
     setItems((items) => [...items, item]);
   }
 
-  function handleDeleteItem(id) {
-    setItems{items=>items.filter(item=>item.id !== id)}
+  function handleDeleteItem(id: number) {
+    setItems((items) => items.filter((item) => item.id !== id));
   }
 
   return (
@@ -71,20 +71,20 @@ function PackingList({ items, onDeleteItem }) {
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item item={item} key={item.id} onDeleteItem={onDeleteItem}/>
+          <Item item={item} key={item.id} onDeleteItem={onDeleteItem} />
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ item,onDeleteItem }) {
+function Item({ item, onDeleteItem }) {
   return (
     <li>
       <span style={{ textDecoration: item.packed ? "line-through" : "none" }}>
         {item.quantity} {item.description}
       </span>
-      <button onClick={()=>onDeleteItem(item.id)}>❌</button>
+      <button onClick={() => onDeleteItem(item.id)}>❌</button>
     </li>
   );
 }
